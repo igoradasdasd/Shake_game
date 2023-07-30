@@ -7,6 +7,7 @@ using namespace std;
 namespace
 {
 	bool gameOver;
+
 	const int widht = 20;
 	const int hight = 20;
 	int x, y, fruitX, fruitY, score;
