@@ -2,16 +2,19 @@
 #include <conio.h>
 #include <Windows.h>
 
+#include "const.h"
+#include "Shake.h"
+
 using namespace std;
 
 namespace
 {
 	bool gameOver;
 
-	const int widht = 20;
-	const int hight = 20;
+//	const int widht = 20;
+//	const int hight = 20;
 	int x, y, fruitX, fruitY, score;
-	enum eDirections { STOP = 0, LEFT, RIGHT, UP, DOWN };
+//	enum eDirections { STOP = 0, LEFT, RIGHT, UP, DOWN };
 	eDirections dir = STOP;
 	int tailX[100], tailY[100];
 	int nTail;
@@ -186,11 +189,17 @@ void Logic()
 int main(void)
 {
 	Setup();
-	while (!gameOver)
+	Shake shake = Shake(widht, hight);
+
+	while (!shake.GameOver() )
 	{
 		Draw();
-		Input();
-		Logic();
+		shake.Input();
+		shake.Logic();
+
+//		Input();
+//		Logic();
+
 		Sleep(500);
 	}
 
