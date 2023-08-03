@@ -10,16 +10,16 @@ using namespace std;
 
 namespace
 {
-	bool gameOver;
+//	bool gameOver;
 
 //	const int widht = 20;
 //	const int hight = 20;
 //	int x, y, fruitX, fruitY, score;
 //	int fruitX, fruitY, score;
 //	enum eDirections { STOP = 0, LEFT, RIGHT, UP, DOWN };
-	eDirections dir = STOP;
-	int tailX[100], tailY[100];
-	int nTail;
+//	eDirections dir = STOP;
+//	int tailX[100], tailY[100];
+//	int nTail;
 
 }
 
@@ -61,7 +61,7 @@ void Draw(const Shake & inShake, const Fruit & inFruit)
 				else
 				{
 					bool print = false;
-					for (int k = 0; k < nTail; ++k)
+					for (int k = 0; k < inShake.nTail; ++k)
 					{
 						if (inShake.tailX[k] == j && inShake.tailY[k] == i)
 						{

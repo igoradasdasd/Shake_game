@@ -1,6 +1,12 @@
 #pragma once
 #include "const.h"
 #include "fruit.h"
+#include "utility"
+//#include "vector"
+
+
+//using std::vector;
+using std::pair;
 
 class Shake
 {
@@ -18,6 +24,7 @@ private:
 	int y;
 	int tailX[100]{0}, tailY[100]{0};		// координаты €чеек змейки
 	int nTail;								// длина змейки
+	//forward_list<pair<int, int>> elements;		// элементы змейки в векторе X  и Y
 	eDirections dir;					// направление движени€
 	bool gameOver;					// false - game continue; true - gameover
 	int score;
