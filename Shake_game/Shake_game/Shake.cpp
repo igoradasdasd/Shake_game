@@ -32,13 +32,13 @@ void Shake::Input()
 	}
 }
 
-void Shake::Logic()
+void Shake::Logic(Fruit& inFruit)
 {
+
 	int prevX = tailX[0];
 	int prevY = tailY[0];
 	int prev2X, prev2Y;
 	tailX[0] = x;
-	tailY[0] = y;
 	tailY[0] = y;
 
 	for (int i = 1; i < nTail; ++i)
@@ -88,5 +88,12 @@ void Shake::Logic()
 	{
 		if (tailX[i] == x && tailY[i] == y)
 			gameOver = true;
+	}
+
+	if (x == inFruit.fruitX && y == inFruit.fruitY)
+	{
+		score += 10;
+		inFruit.placement();
+		++nTail;
 	}
 }

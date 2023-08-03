@@ -4,6 +4,7 @@
 
 #include "const.h"
 #include "Shake.h"
+#include "fruit.h"
 
 using namespace std;
 
@@ -13,7 +14,8 @@ namespace
 
 //	const int widht = 20;
 //	const int hight = 20;
-	int x, y, fruitX, fruitY, score;
+//	int x, y, fruitX, fruitY, score;
+//	int fruitX, fruitY, score;
 //	enum eDirections { STOP = 0, LEFT, RIGHT, UP, DOWN };
 	eDirections dir = STOP;
 	int tailX[100], tailY[100];
@@ -23,16 +25,19 @@ namespace
 
 void Setup()
 {
+	/*
 	gameOver = false;
 	x = widht / 2 - 1;
 	y = hight / 2 - 1;
+		score = 0;
+
 	fruitX = rand() % widht;
 	fruitY = rand() % hight;
-	score = 0;
+*/
 	
 }
 
-void Draw()
+void Draw(const Shake & inShake, const Fruit & inFruit)
 {
 	system("cls");
 	for (int i = 0; i != (widht + 1) ; ++i)
@@ -48,17 +53,17 @@ void Draw()
 			if (j == 0 || j == (widht - 1))
 				cout << "#";
 
-			if (i == y && j == x)
+			if (i == inShake.y && j == inShake.x)
 				cout << "0";
 			else
-				if (i == fruitY && j == fruitX)
+				if (i == inFruit.fruitY && j == inFruit.fruitX)
 					cout << "F";
 				else
 				{
 					bool print = false;
 					for (int k = 0; k < nTail; ++k)
 					{
-						if (tailX[k] == j && tailY[k] == i)
+						if (inShake.tailX[k] == j && inShake.tailY[k] == i)
 						{
 							cout << "o";
 							print = true;
@@ -68,20 +73,19 @@ void Draw()
 					cout << " ";
 
 				}
-
+			
 		}
 		cout << endl;
 	}
-
 
 	for (int i = 0; i != (widht + 1); ++i)
 	{
 		cout << "#";
 	}
 	cout << endl;
-	cout << " Score: " << score;
+	cout << " Score: " << inShake.score;
 }
-
+/*
 void Input()
 {
 	if (_kbhit())
@@ -112,7 +116,8 @@ void Input()
 	}
 
 }
-
+*/
+/*
 void Logic()
 {
 	int prevX = tailX[0];
@@ -151,10 +156,10 @@ void Logic()
 	default:
 		break;
 	}
-	/*
+	
 	if (x > widht || x < 0 || y > hight || y < 0)
 		gameOver = true;
-		*/
+
 	
 	if (x >= widht)
 		x = 0;
@@ -185,18 +190,19 @@ void Logic()
 		
 }
 
-
+*/
 int main(void)
 {
 	Setup();
 	Shake shake = Shake(widht, hight);
+	Fruit fruit = Fruit(widht, hight);
 
 	while (!shake.GameOver() )
 	{
-		Draw();
-		shake.Input();
-		shake.Logic();
 
+		shake.Input();
+		shake.Logic(fruit);
+		Draw(shake, fruit);
 //		Input();
 //		Logic();
 
