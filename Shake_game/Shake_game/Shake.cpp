@@ -34,7 +34,6 @@ void Shake::Input()
 
 void Shake::Logic(Fruit& inFruit)
 {
-
 	int prevX = tailX[0];
 	int prevY = tailY[0];
 	int prev2X, prev2Y;
@@ -51,6 +50,39 @@ void Shake::Logic(Fruit& inFruit)
 		prevY = prev2Y;
 
 	}
+
+	deque<pair<int, int>>::reverse_iterator it = elements.rbegin();
+
+//	it = it + elements.size() - 1;
+	if (!elements.empty() && FruitEat == false)
+	{
+		rotate(elements.rbegin(), elements.rbegin() + 1, elements.rend());
+		elements[0].first = x;
+		elements[0].second = y;
+	}
+	else
+		FruitEat = false;
+
+	/*
+	if (elements.empty())
+	{
+		pair<int, int>* p = new pair<int, int>{ x, y };
+		elements.push_front(*p);
+		delete p;
+	}
+	else
+	{
+		deque<pair<int, int>>::iterator beg = elements.begin();
+		beg->first = x;
+		beg->second = y;
+	}
+*/
+
+	/*
+	pair<int, int>* p = new pair<int, int>{ x, y };
+	elements.push_front(* p);
+	delete p;
+	*/
 
 	switch (dir)
 	{
@@ -95,5 +127,11 @@ void Shake::Logic(Fruit& inFruit)
 		score += 10;
 		inFruit.placement();
 		++nTail;
+
+		pair<int, int>* p = new pair<int, int>{ x, y };
+		elements.push_front(*p);
+		delete p;
+		FruitEat = true;
+
 	}
 }

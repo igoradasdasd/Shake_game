@@ -61,9 +61,10 @@ void Draw(const Shake & inShake, const Fruit & inFruit)
 				else
 				{
 					bool print = false;
-					for (int k = 0; k < inShake.nTail; ++k)
+					for (int k = 0; k < inShake.elements.size(); ++k)
 					{
-						if (inShake.tailX[k] == j && inShake.tailY[k] == i)
+						//if (inShake.tailX[k] == j && inShake.tailY[k] == i)
+						if (inShake.elements[k].first == j && inShake.elements[k].second == i)
 						{
 							cout << "o";
 							print = true;
@@ -71,9 +72,7 @@ void Draw(const Shake & inShake, const Fruit & inFruit)
 					}
 					if (print == false)
 					cout << " ";
-
 				}
-			
 		}
 		cout << endl;
 	}

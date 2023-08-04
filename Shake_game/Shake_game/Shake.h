@@ -1,12 +1,14 @@
 #pragma once
 #include "const.h"
 #include "fruit.h"
-#include "utility"
+#include <utility>
 //#include "vector"
+#include <deque>
 
 
 //using std::vector;
 using std::pair;
+using std::deque;
 
 class Shake
 {
@@ -14,7 +16,7 @@ class Shake
 public:
 	Shake() = delete;
 	Shake(const int x_in, const int y_in): x(x_in / 2 - 1), y(y_in / 2 - 1), dir(STOP), gameOver(false),
-		nTail(0), score(0) {};
+		nTail(0), score(0), FruitEat(false) {};
 	void Input();
 	void Logic( Fruit& );
 	bool GameOver() const { return gameOver; }
@@ -24,9 +26,10 @@ private:
 	int y;
 	int tailX[100]{0}, tailY[100]{0};		// координаты ячеек змейки
 	int nTail;								// длина змейки
-	//forward_list<pair<int, int>> elements;		// элементы змейки в векторе X  и Y
-	eDirections dir;					// направление движения
-	bool gameOver;					// false - game continue; true - gameover
-	int score;
+	bool FruitEat;
+	deque<pair<int, int>> elements;	// элементы змейки в векторе X  и Y
+	eDirections dir;						// направление движения
+	bool gameOver;							// false - game continue; true - gameover
+	int score;								// очки		
 };
 
