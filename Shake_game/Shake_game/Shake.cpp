@@ -107,13 +107,13 @@ void Shake::Logic(Fruit& inFruit)
 		x = 0;
 	else
 		if (x < 0)
-			x = widht - 2;
+			x = widht - 1;
 
 	if (y >= hight)
 		y = 0;
 	else
 		if (y < 0)
-			y = hight - 2;
+			y = hight ;
 
 
 	for (int i = 0; i < nTail; ++i)

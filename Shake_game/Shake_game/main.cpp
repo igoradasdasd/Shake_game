@@ -6,6 +6,8 @@
 #include "Shake.h"
 #include "fruit.h"
 
+void DrawBorder();
+
 using namespace std;
 
 namespace
@@ -40,17 +42,13 @@ void Setup()
 void Draw(const Shake & inShake, const Fruit & inFruit)
 {
 	system("cls");
-	for (int i = 0; i != (widht + 1) ; ++i)
-	{
-		cout << "#";
-	}
-	cout << endl;
+	DrawBorder();
 
 	for (int i = 0; i != hight; ++i)
 	{
-		for (int j = 0; j != widht; ++j)
+		for (int j = 0; j != (widht+1); ++j)
 		{
-			if (j == 0 || j == (widht - 1))
+			if (j == 0 || j == (widht ))
 				cout << "#";
 
 			if (i == inShake.y && j == inShake.x)
@@ -77,12 +75,18 @@ void Draw(const Shake & inShake, const Fruit & inFruit)
 		cout << endl;
 	}
 
-	for (int i = 0; i != (widht + 1); ++i)
+	DrawBorder();
+
+	cout << " Score: " << inShake.score;
+}
+
+void DrawBorder()
+{
+	for (int i = 0; i != (widht + 2); ++i)
 	{
 		cout << "#";
 	}
 	cout << endl;
-	cout << " Score: " << inShake.score;
 }
 /*
 void Input()
