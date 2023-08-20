@@ -3,8 +3,9 @@
 #include <conio.h>
 #include <Windows.h>
 
-
-void Shake::Input()
+/*
+template <typename T>
+void Shake<T>::Input()
 {
 	if (_kbhit())
 	{
@@ -31,12 +32,14 @@ void Shake::Input()
 		}
 	}
 }
-
-void Shake::Logic(Fruit& inFruit)
+*/
+/*
+template <typename T>
+void Shake<T>::Logic(Fruit& inFruit)
 {
-	int prevX = tailX[0];
-	int prevY = tailY[0];
-	int prev2X, prev2Y;
+	T prevX = tailX[0];
+	T prevY = tailY[0];
+	T prev2X, prev2Y;
 	tailX[0] = x;
 	tailY[0] = y;
 
@@ -51,9 +54,7 @@ void Shake::Logic(Fruit& inFruit)
 
 	}
 
-	deque<pair<int, int>>::reverse_iterator it = elements.rbegin();
 
-//	it = it + elements.size() - 1;
 	if (!elements.empty() && FruitEat == false)
 	{
 		rotate(elements.rbegin(), elements.rbegin() + 1, elements.rend());
@@ -62,27 +63,6 @@ void Shake::Logic(Fruit& inFruit)
 	}
 	else
 		FruitEat = false;
-
-	/*
-	if (elements.empty())
-	{
-		pair<int, int>* p = new pair<int, int>{ x, y };
-		elements.push_front(*p);
-		delete p;
-	}
-	else
-	{
-		deque<pair<int, int>>::iterator beg = elements.begin();
-		beg->first = x;
-		beg->second = y;
-	}
-*/
-
-	/*
-	pair<int, int>* p = new pair<int, int>{ x, y };
-	elements.push_front(* p);
-	delete p;
-	*/
 
 	switch (dir)
 	{
@@ -134,4 +114,14 @@ void Shake::Logic(Fruit& inFruit)
 		FruitEat = true;
 
 	}
+}
+*/
+
+void DrawBorder()
+{
+	for (int i = 0; i != (widht + 2); ++i)
+	{
+		cout << "#";
+	}
+	cout << endl;
 }

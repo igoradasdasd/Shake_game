@@ -6,7 +6,7 @@
 #include "Shake.h"
 #include "fruit.h"
 
-void DrawBorder();
+//void DrawBorder();
 
 using namespace std;
 
@@ -38,8 +38,9 @@ void Setup()
 */
 	
 }
-
-void Draw(const Shake & inShake, const Fruit & inFruit)
+/*
+template <class T>
+void Draw(const Shake<T> & inShake, const Fruit & inFruit)
 {
 	system("cls");
 	DrawBorder();
@@ -88,6 +89,7 @@ void DrawBorder()
 	}
 	cout << endl;
 }
+*/
 /*
 void Input()
 {
@@ -197,7 +199,7 @@ void Logic()
 int main(void)
 {
 	Setup();
-	Shake shake = Shake(widht, hight);
+	Shake<int> shake = Shake<int>(widht, hight);
 	Fruit fruit = Fruit(widht, hight);
 
 	while (!shake.GameOver() )
@@ -205,9 +207,8 @@ int main(void)
 
 		shake.Input();
 		shake.Logic(fruit);
-		Draw(shake, fruit);
-//		Input();
-//		Logic();
+		Draw<int>(shake, fruit);
+
 
 		Sleep(500);
 	}
