@@ -5,8 +5,6 @@
 
 struct Fruit
 {
-	//friend Shake;
-	//friend extern void Draw(const Shake&, const Fruit &);
 	Fruit() = delete;
 	Fruit(const int inX, const int inY) : fruitX(rand() % inX), fruitY(rand() % inY) {};
 

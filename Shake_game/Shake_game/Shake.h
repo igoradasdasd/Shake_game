@@ -1,3 +1,8 @@
+#ifndef __Shake_H
+#define __Shake_H
+
+
+
 #pragma once
 #include <iostream>
 #include <conio.h>
@@ -88,9 +93,6 @@ void Shake<T>::Logic(Fruit& inFruit)
 
 	}
 
-	//	deque<pair<T, T>>::reverse_iterator it = elements.rbegin();
-
-	//	it = it + elements.size() - 1;
 	if (!elements.empty() && FruitEat == false)
 	{
 		rotate(elements.rbegin(), elements.rbegin() + 1, elements.rend());
@@ -99,27 +101,6 @@ void Shake<T>::Logic(Fruit& inFruit)
 	}
 	else
 		FruitEat = false;
-
-	/*
-	if (elements.empty())
-	{
-		pair<int, int>* p = new pair<int, int>{ x, y };
-		elements.push_front(*p);
-		delete p;
-	}
-	else
-	{
-		deque<pair<int, int>>::iterator beg = elements.begin();
-		beg->first = x;
-		beg->second = y;
-	}
-*/
-
-/*
-pair<int, int>* p = new pair<int, int>{ x, y };
-elements.push_front(* p);
-delete p;
-*/
 
 	switch (dir)
 	{
@@ -199,7 +180,6 @@ void Draw(const Shake<T>& inShake, const Fruit& inFruit)
 					bool print = false;
 					for (int k = 0; k < inShake.elements.size(); ++k)
 					{
-						//if (inShake.tailX[k] == j && inShake.tailY[k] == i)
 						if (inShake.elements[k].first == j && inShake.elements[k].second == i)
 						{
 							cout << "o";
@@ -217,3 +197,4 @@ void Draw(const Shake<T>& inShake, const Fruit& inFruit)
 
 	cout << " Score: " << inShake.score;
 }
+#endif // !__Shake_H
