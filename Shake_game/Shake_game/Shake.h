@@ -44,6 +44,9 @@ private:
 	int score;								// очки		
 };
 
+// создаем экземлп€р шаблона 
+extern template Shake<int>;
+
 template <typename T>
 void Shake<T>::Input()
 {

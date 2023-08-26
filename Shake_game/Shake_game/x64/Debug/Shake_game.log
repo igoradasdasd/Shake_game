@@ -1,4 +1,6 @@
 ﻿  Shake.cpp
   main.cpp
   Создание кода...
-  Shake_game.vcxproj -> D:\GItHub\C++\Shake_game\Shake_game\x64\Debug\Shake_game.exe
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl Shake<int>::Input(void)" (?Input@?$Shake@H@@QEAAXXZ) в функции main.
+main.obj : error LNK2019: ссылка на неразрешенный внешний символ "public: void __cdecl Shake<int>::Logic(struct Fruit &)" (?Logic@?$Shake@H@@QEAAXAEAUFruit@@@Z) в функции main.
+D:\GItHub\C++\Shake_game\Shake_game\x64\Debug\Shake_game.exe : fatal error LNK1120: неразрешенных внешних элементов: 2
